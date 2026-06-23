@@ -6,6 +6,24 @@ Config-driven advanced filters for [Naive UI](https://www.naiveui.com/) data tab
 
 `naive-gridfilter` extracts a reusable version of a production table header filter pattern: you describe each column's filter type in configuration, and the package renders a Naive UI filter menu plus normalized `filterRules` for remote APIs.
 
+## Screenshots
+
+Text filters provide common string operators such as contains, equals, starts with and ends with.
+
+![Text filter menu](./docs/images/naivi-gridfilter1.png)
+
+Select filters work with static options or async option loading, which is useful for status, category and owner fields.
+
+![Select filter menu](./docs/images/naivi-gridfilter2.png)
+
+Date filters support independent start and end operators, then expand the selected range into backend-friendly rules.
+
+![Date filter menu](./docs/images/naivi-gridfilter3.png)
+
+Number filters provide comparison operators for IDs, counters, scores and other numeric columns.
+
+![Number filter menu](./docs/images/naivi-gridfilter4.png)
+
 ## Install
 
 ```bash

@@ -6,6 +6,24 @@
 
 `naive-gridfilter` 把一个生产项目中的表头过滤模式抽象成可复用 npm 包：你只需要在表格列配置里声明过滤类型，它会自动渲染 Naive UI 表头过滤菜单，并输出适合远程接口使用的标准 `filterRules`。
 
+## 截图示例
+
+文本过滤支持包含、等于、开头是、结尾是等常见字符串操作。
+
+![文本过滤菜单](./docs/images/naivi-gridfilter1.png)
+
+下拉过滤支持静态选项或异步加载选项，适合状态、分类、负责人等字段。
+
+![下拉过滤菜单](./docs/images/naivi-gridfilter2.png)
+
+日期过滤支持起止日期分别选择操作符，并会展开成适合后端接收的过滤规则。
+
+![日期过滤菜单](./docs/images/naivi-gridfilter3.png)
+
+数字过滤支持多种比较操作，适合 ID、数量、评分等数值列。
+
+![数字过滤菜单](./docs/images/naivi-gridfilter4.png)
+
 ## 安装
 
 ```bash
