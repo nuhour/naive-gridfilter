@@ -1,0 +1,56 @@
+{
+  "name": "naive-gridfilter",
+  "version": "0.1.0",
+  "description": "Config-driven advanced filters for Naive UI data tables.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
+    "prepack": "npm run build",
+    "test": "vitest run",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "keywords": [
+    "naive-ui",
+    "data-table",
+    "gridfilter",
+    "vue3",
+    "table-filter"
+  ],
+  "peerDependencies": {
+    "naive-ui": "^2.39.0",
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^25.0.1",
+    "naive-ui": "^2.39.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.20",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^2.1.9",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
