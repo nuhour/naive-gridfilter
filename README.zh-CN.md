@@ -2,11 +2,11 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Config-driven advanced filters for [Naive UI](https://www.naiveui.com/) data tables.
+面向 [Naive UI](https://www.naiveui.com/) `n-data-table` 的配置式高级表格过滤组件。
 
-`naive-gridfilter` extracts a reusable version of a production table header filter pattern: you describe each column's filter type in configuration, and the package renders a Naive UI filter menu plus normalized `filterRules` for remote APIs.
+`naive-gridfilter` 把一个生产项目中的表头过滤模式抽象成可复用 npm 包：你只需要在表格列配置里声明过滤类型，它会自动渲染 Naive UI 表头过滤菜单，并输出适合远程接口使用的标准 `filterRules`。
 
-## Install
+## 安装
 
 ```bash
 npm install naive-gridfilter
@@ -18,7 +18,7 @@ Peer dependencies:
 npm install vue naive-ui
 ```
 
-## Basic Usage
+## 快速使用
 
 ```vue
 <script setup lang="ts">
@@ -43,23 +43,23 @@ const columns = computed(() =>
         gridFilter: { type: 'number', minNumber: 1 },
       },
       {
-        title: 'Name',
+        title: '名称',
         key: 'name',
         gridFilter: 'text',
       },
       {
-        title: 'Status',
+        title: '状态',
         key: 'status',
         gridFilter: {
           type: 'select',
           options: [
-            { label: 'Enabled', value: 1 },
-            { label: 'Disabled', value: 0 },
+            { label: '启用', value: 1 },
+            { label: '禁用', value: 0 },
           ],
         },
       },
       {
-        title: 'Updated At',
+        title: '更新时间',
         key: 'updated_at',
         gridFilter: { type: 'date' },
       },
@@ -85,31 +85,31 @@ async function loadData(params = {}) {
 </template>
 ```
 
-## Column Configuration
+## 列配置
 
-Add `gridFilter` to any Naive UI table column:
+给 Naive UI 表格列增加 `gridFilter` 即可：
 
 ```ts
 const columns = createFilterColumns([
-  { title: 'Name', key: 'name', gridFilter: 'text' },
+  { title: '名称', key: 'name', gridFilter: 'text' },
   { title: 'ID', key: 'id', gridFilter: { type: 'number', minNumber: 1 } },
   {
-    title: 'Status',
+    title: '状态',
     key: 'status',
     gridFilter: {
       type: 'select',
       options: [
-        { label: 'Enabled', value: 1 },
-        { label: 'Disabled', value: 0 },
+        { label: '启用', value: 1 },
+        { label: '禁用', value: 0 },
       ],
     },
   },
 ]);
 ```
 
-## Output Format
+## 输出格式
 
-`buildFilterRules()` returns a backend-friendly array:
+`buildFilterRules()` 会输出适合后端接口接收的数组：
 
 ```ts
 [
@@ -120,23 +120,23 @@ const columns = createFilterColumns([
 ];
 ```
 
-Date range filters expand into two independent rules. `false` and `0` are preserved as valid filter values.
+日期范围会展开成两条独立规则。`false` 和 `0` 会被保留为有效过滤值，不会被误判为空。
 
-## Filter Types
+## 支持的过滤类型
 
-- `text`: contains, equals, starts with, ends with
-- `number`: equals, greater than, greater than or equal, less than, less than or equal
-- `date`: start/end date with independent operators
-- `select`: static or async options
-- `combobox`: searchable select
-- `boolean`: true/false select
-- `combotree`: multiple tree select, emitted with `in`
+- `text`: 包含、等于、开头是、结尾是
+- `number`: 等于、大于、大于等于、小于、小于等于
+- `date`: 起止日期，并支持独立操作符
+- `select`: 静态或异步选项
+- `combobox`: 可搜索下拉
+- `boolean`: 布尔下拉
+- `combotree`: 多选树，下发操作符为 `in`
 
-## Async Options
+## 异步选项
 
 ```ts
 {
-  title: 'Owner',
+  title: '负责人',
   key: 'owner_id',
   gridFilter: {
     type: 'select',
@@ -149,7 +149,7 @@ Date range filters expand into two independent rules. `false` and `0` are preser
 }
 ```
 
-## Direct Component Usage
+## 直接使用组件
 
 ```vue
 <HeaderFilter
@@ -160,7 +160,7 @@ Date range filters expand into two independent rules. `false` and `0` are preser
 />
 ```
 
-## Development
+## 开发
 
 ```bash
 npm install
@@ -169,13 +169,13 @@ npm run typecheck
 npm run build
 ```
 
-## Publishing
+## 发布到 npm
 
 ```bash
 npm publish
 ```
 
-For scoped public packages, use:
+如果是 scoped public package，使用：
 
 ```bash
 npm publish --access public
